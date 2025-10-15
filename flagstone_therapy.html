@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flagstone South Therapy Academy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .category-card h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .category-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .video-count {
+            background: #f0f0f0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.9em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .content-section h2 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .content-section .description {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .back-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #764ba2;
+        }
+
+        .video-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .video-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .video-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .video-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .video-item p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .video-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 20px;
+            transition: background 0.3s ease;
+            font-weight: 500;
+        }
+
+        .video-link:hover {
+            background: #764ba2;
+        }
+
+        .add-content-note {
+            background: #fff3cd;
+            border: 2px dashed #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+            color: #856404;
+        }
+
+        .add-content-note strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+
+            .content-section h2 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ðŸŽ“ Flagstone South Therapy Academy</h1>
+            <p>Your Centralized Hub for Professional Development & Training</p>
+        </header>
+
+        <!-- Main Category Grid -->
+        <div id="mainView" class="categories-grid">
+            <div class="category-card" onclick="showCategory('students')">
+                <div class="category-icon">ðŸ“š</div>
+                <h2>Students</h2>
+                <p>Training materials for student interns and observers</p>
+                <span class="video-count">Coming Soon</span>
+            </div>
+
+            <div class="category-card" onclick="showCategory('new-therapists')">
+                <div class="category-icon">ðŸŒ±</div>
+                <h2>New Therapists</h2>
+                <p>Onboarding and foundational training for newly hired therapists</p>
+                <span class="video-count">Coming Soon</span>
+            </div>
+
+            <div class="category-card" onclick="showCategory('therapists')">
+                <div class="category-icon">âš•ï¸</div>
+                <h2>Therapists</h2>
+                <p>Continuing education and advanced training for experienced therapists</p>
+                <span class="video-count">1 Video</span>
+            </div>
+
+            <div class="category-card" onclick="showCategory('oneclinical')">
+                <div class="category-icon">ðŸ’»</div>
+                <h2>OneClinical</h2>
+                <p>Platform-specific training for the OneClinical system</p>
+                <span class="video-count">1 Video</span>
+            </div>
+
+            <div class="category-card" onclick="showCategory('documentation')">
+                <div class="category-icon">ðŸ“</div>
+                <h2>Documentation Trainings</h2>
+                <p>Best practices for clinical documentation and record-keeping</p>
+                <span class="video-count">Coming Soon</span>
+            </div>
+
+            <div class="category-card" onclick="showCategory('culture')">
+                <div class="category-icon">ðŸ¤</div>
+                <h2>Culture Trainings</h2>
+                <p>Company culture, values, and team development</p>
+                <span class="video-count">Coming Soon</span>
+            </div>
+
+            <div class="category-card" onclick="showCategory('leadership')">
+                <div class="category-icon">ðŸŽ¯</div>
+                <h2>Leadership Training</h2>
+                <p>Developing leadership skills and management excellence</p>
+                <span class="video-count">1 Video</span>
+            </div>
+        </div>
+
+        <!-- Students Section -->
+        <div id="students" class="content-section">
+            <button class="back-button" onclick="showMain()">â† Back to All Categories</button>
+            <h2>ðŸ“š Students</h2>
+            <p class="description">Training materials for student interns and observers</p>
+            
+            <div class="video-list">
+                <!-- Example video item - duplicate and modify this structure -->
+                <div class="video-item">
+                    <h3>Example Training Video</h3>
+                    <p>Description of what this training covers</p>
+                    <a href="YOUR_CANVA_URL_HERE" target="_blank" class="video-link">Watch Video â†’</a>
+                </div>
+            </div>
+
+            <div class="add-content-note">
+                <strong>ðŸ“Œ To Add Videos:</strong>
+                Edit this HTML file and replace "YOUR_CANVA_URL_HERE" with your actual Canva video links. Duplicate the video-item div to add more videos.
+            </div>
+        </div>
+
+        <!-- New Therapists Section -->
+        <div id="new-therapists" class="content-section">
+            <button class="back-button" onclick="showMain()">â† Back to All Categories</button>
+            <h2>ðŸŒ± New Therapists</h2>
+            <p class="description">Onboarding and foundational training for newly hired therapists</p>
+            
+            <div class="video-list">
+                <div class="video-item">
+                    <h3>Example Training Video</h3>
+                    <p>Description of what this training covers</p>
+                    <a href="YOUR_CANVA_URL_HERE" target="_blank" class="video-link">Watch Video â†’</a>
+                </div>
+            </div>
+
+            <div class="add-content-note">
+                <strong>ðŸ“Œ To Add Videos:</strong>
+                Edit this HTML file and replace "YOUR_CANVA_URL_HERE" with your actual Canva video links. Duplicate the video-item div to add more videos.
+            </div>
+        </div>
+
+        <!-- Therapists Section -->
+        <div id="therapists" class="content-section">
+            <button class="back-button" onclick="showMain()">â† Back to All Categories</button>
+            <h2>âš•ï¸ Therapists</h2>
+            <p class="description">Continuing education and advanced training for experienced therapists</p>
+            
+            <div class="video-list">
+                <div class="video-item">
+                    <h3>Let's talk about group therapy and efficiency</h3>
+                    <p>Learn strategies for conducting effective and efficient group therapy sessions</p>
+                    <a href="https://www.canva.com/design/DAG1zEBLNrE/7M268sgTUtyiVzGvmUZLcg/edit?utm_content=DAG1zEBLNrE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="video-link">Watch Video â†’</a>
+                </div>
+            </div>
+
+            <div class="add-content-note">
+                <strong>ðŸ“Œ To Add More Videos:</strong>
+                Share more Canva links with me and I'll add them for you, or edit this HTML file and duplicate the video-item div structure above.
+            </div>
+        </div>
+
+        <!-- OneClinical Section -->
+        <div id="oneclinical" class="content-section">
+            <button class="back-button" onclick="showMain()">â† Back to All Categories</button>
+            <h2>ðŸ’» OneClinical</h2>
+            <p class="description">Platform-specific training for the OneClinical system</p>
+            
+            <div class="video-list">
+                <div class="video-item">
+                    <h3>What is OneClinical Initiative?</h3>
+                    <p>Learn how one clinical approach is a critical advantage in our residents care</p>
+                    <a href="https://www.canva.com/design/DAG1zaGoak0/ECiJf4_HYWzKKr0pim-qvg/edit?utm_content=DAG1zaGoak0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="video-link">Watch Video â†’</a>
+                </div>
+            </div>
+
+            <div class="add-content-note">
+                <strong>ðŸ“Œ To Add More Videos:</strong>
+                Share more Canva links with me and I'll add them for you, or edit this HTML file and duplicate the video-item div structure above.
+            </div>
+        </div>
+
+        <!-- Documentation Section -->
+        <div id="documentation" class="content-section">
+            <button class="back-button" onclick="showMain()">â† Back to All Categories</button>
+            <h2>ðŸ“ Documentation Trainings</h2>
+            <p class="description">Best practices for clinical documentation and record-keeping</p>
+            
+            <div class="video-list">
+                <div class="video-item">
+                    <h3>Example Training Video</h3>
+                    <p>Description of what this training covers</p>
+                    <a href="YOUR_CANVA_URL_HERE" target="_blank" class="video-link">Watch Video â†’</a>
+                </div>
+            </div>
+
+            <div class="add-content-note">
+                <strong>ðŸ“Œ To Add Videos:</strong>
+                Edit this HTML file and replace "YOUR_CANVA_URL_HERE" with your actual Canva video links. Duplicate the video-item div to add more videos.
+            </div>
+        </div>
+
+        <!-- Culture Section -->
+        <div id="culture" class="content-section">
+            <button class="back-button" onclick="showMain()">â† Back to All Categories</button>
+            <h2>ðŸ¤ Culture Trainings</h2>
+            <p class="description">Company culture, values, and team development</p>
+            
+            <div class="video-list">
+                <div class="video-item">
+                    <h3>Example Training Video</h3>
+                    <p>Description of what this training covers</p>
+                    <a href="YOUR_CANVA_URL_HERE" target="_blank" class="video-link">Watch Video â†’</a>
+                </div>
+            </div>
+
+            <div class="add-content-note">
+                <strong>ðŸ“Œ To Add Videos:</strong>
+                Share more Canva links with me and I'll add them for you, or edit this HTML file and duplicate the video-item div structure above.
+            </div>
+        </div>
+
+        <!-- Leadership Training Section -->
+        <div id="leadership" class="content-section">
+            <button class="back-button" onclick="showMain()">â† Back to All Categories</button>
+            <h2>ðŸŽ¯ Leadership Training</h2>
+            <p class="description">Developing leadership skills and management excellence</p>
+            
+            <div class="video-list">
+                <div class="video-item">
+                    <h3>The Art of Asking</h3>
+                    <p>How you can transform your presentation from boring to engaging</p>
+                    <a href="https://www.canva.com/design/DAG1zZ7KYes/J01B8-8BE7iJg2piArDghA/edit?utm_content=DAG1zZ7KYes&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="video-link">Watch Video â†’</a>
+                </div>
+            </div>
+
+            <div class="add-content-note">
+                <strong>ðŸ“Œ To Add More Videos:</strong>
+                Share more Canva links with me and I'll add them for you, or edit this HTML file and duplicate the video-item div structure above.
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Flagstone South Therapy Academy | Empowering Excellence Through Education</p>
+        </footer>
+    </div>
+
+    <script>
+        function showCategory(categoryId) {
+            document.getElementById('mainView').style.display = 'none';
+            document.getElementById(categoryId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function showMain() {
+            document.getElementById('mainView').style.display = 'grid';
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
