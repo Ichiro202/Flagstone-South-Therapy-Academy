@@ -1,0 +1,62 @@
+{
+  "students": {
+    "name": "Students",
+    "icon": "📚",
+    "description": "Training materials for student interns and observers",
+    "urls": []
+  },
+  "new-therapists": {
+    "name": "New Therapists",
+    "icon": "🌱",
+    "description": "Onboarding and foundational training for newly hired therapists",
+    "urls": []
+  },
+  "therapists": {
+    "name": "Therapists",
+    "icon": "⚕️",
+    "description": "Continuing education and advanced training for experienced therapists",
+    "urls": [
+      {
+        "title": "Let's talk about group therapy and efficiency",
+        "description": "Learn strategies for conducting effective and efficient group therapy sessions",
+        "link": "https://www.canva.com/design/DAG1zEBLNrE/7M268sgTUtyiVzGvmUZLcg/edit?utm_content=DAG1zEBLNrE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+      }
+    ]
+  },
+  "oneclinical": {
+    "name": "OneClinical",
+    "icon": "💻",
+    "description": "Platform-specific training for the OneClinical system",
+    "urls": [
+      {
+        "title": "What is OneClinical Initiative?",
+        "description": "Learn how one clinical approach is a critical advantage in our residents care",
+        "link": "https://www.canva.com/design/DAG1zaGoak0/ECiJf4_HYWzKKr0pim-qvg/edit?utm_content=DAG1zaGoak0&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+      }
+    ]
+  },
+  "documentation": {
+    "name": "Documentation Trainings",
+    "icon": "📝",
+    "description": "Best practices for clinical documentation and record-keeping",
+    "urls": []
+  },
+  "culture": {
+    "name": "Culture Trainings",
+    "icon": "🤝",
+    "description": "Company culture, values, and team development",
+    "urls": []
+  },
+  "leadership": {
+    "name": "Leadership Training",
+    "icon": "🎯",
+    "description": "Developing leadership skills and management excellence",
+    "urls": [
+      {
+        "title": "The Art of Asking",
+        "description": "How you can transform your presentation from boring to engaging",
+        "link": "https://www.canva.com/design/DAG1zZ7KYes/J01B8-8BE7iJg2piArDghA/edit?utm_content=DAG1zZ7KYes&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"
+      }
+    ]
+  }
+}

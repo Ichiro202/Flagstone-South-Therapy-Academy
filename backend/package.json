@@ -1,0 +1,17 @@
+{
+  "name": "fsta-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Flagstone South Therapy Academy URL management",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["express", "api", "training"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}
